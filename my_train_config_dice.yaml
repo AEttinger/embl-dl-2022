@@ -21,7 +21,7 @@ model:
 # trainer configuration
 trainer:
   # path to the checkpoint directory
-  checkpoint_dir: "../dl-couse-2022/07_esc_3d_colonies/checkpoints"
+  checkpoint_dir: "/mnt/home/ies/andreas.ettinger/data/dl-couse-2022/checkpoints"
   # path to last_checkpoint.pytorch; if provided the training will be resumed from that checkpoint
   resume: null
   # path to the best_checkpoint.pytorch; to be used for fine-tuning the model with additional ground truth
@@ -82,7 +82,7 @@ loaders:
     # absolute paths to the training datasets; if a given path is a directory all H5 files ('*.h5', '*.hdf', '*.hdf5', '*.hd5')
     # inside this this directory will be included as well (non-recursively)
     file_paths:
-      - "../dl-couse-2022/07_esc_3d_colonies/train"
+      - "/mnt/home/ies/andreas.ettinger/data/dl-couse-2022/h5/train"
 
     # SliceBuilder configuration, i.e. how to iterate over the input volume patch-by-patch
     slice_builder:
@@ -140,7 +140,7 @@ loaders:
     # paths to the validation datasets; if a given path is a directory all H5 files ('*.h5', '*.hdf', '*.hdf5', '*.hd5')
     # inside this this directory will be included as well (non-recursively)
     file_paths:
-      - "../dl-couse-2022/07_esc_3d_colonies/validate"
+      - "/mnt/home/ies/andreas.ettinger/data/dl-couse-2022/h5/validate"
 
     # SliceBuilder configuration
     slice_builder:
