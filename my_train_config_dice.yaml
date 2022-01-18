@@ -21,7 +21,7 @@ model:
 # trainer configuration
 trainer:
   # path to the checkpoint directory
-  checkpoint_dir: "/mnt/home/ies/andreas.ettinger/data/dl-couse-2022/checkpoints"
+  checkpoint_dir: "/mnt/home/ies/andreas.ettinger/data/dl-course-2022/checkpoints"
   # path to last_checkpoint.pytorch; if provided the training will be resumed from that checkpoint
   resume: null
   # path to the best_checkpoint.pytorch; to be used for fine-tuning the model with additional ground truth
@@ -82,7 +82,7 @@ loaders:
     # absolute paths to the training datasets; if a given path is a directory all H5 files ('*.h5', '*.hdf', '*.hdf5', '*.hd5')
     # inside this this directory will be included as well (non-recursively)
     file_paths:
-      - "/mnt/home/ies/andreas.ettinger/data/dl-couse-2022/h5/train"
+      - "/mnt/home/ies/andreas.ettinger/data/dl-course-2022/h5/train/"
 
     # SliceBuilder configuration, i.e. how to iterate over the input volume patch-by-patch
     slice_builder:
@@ -140,16 +140,17 @@ loaders:
     # paths to the validation datasets; if a given path is a directory all H5 files ('*.h5', '*.hdf', '*.hdf5', '*.hd5')
     # inside this this directory will be included as well (non-recursively)
     file_paths:
-      - "/mnt/home/ies/andreas.ettinger/data/dl-couse-2022/h5/validate"
+      - "/mnt/home/ies/andreas.ettinger/data/dl-course-2022/h5/val/"
 
     # SliceBuilder configuration
     slice_builder:
       # SliceBuilder class
       name: SliceBuilder
+      # changed both val patch and stride to 16, 64, 64 as data is max 21 slices - AE 18.1.22
       # validation patch (can be bigger than train patch since there is no backprop)
-      patch_shape: [32, 64, 64]
+      patch_shape: [16, 64, 64]
       # validation stride (validation patches doesn't need to overlap)
-      stride_shape: [32, 64, 64]
+      stride_shape: [16, 64, 64]
     transformer:
       raw:
         - name: Standardize
